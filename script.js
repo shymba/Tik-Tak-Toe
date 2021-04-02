@@ -1,6 +1,7 @@
 const game = document.querySelector('.game');
 const item = document.querySelectorAll('.item');
 let step = 0;
+let text = document.getElementById('text');
 let btn = document.querySelector('.btn');
 btn.addEventListener('click', function(){
     location.reload()
@@ -16,7 +17,7 @@ function play() {
         }
         check();
         step++;
-        // console.log(step);
+        console.log(step);
         draw()
     })
 }
@@ -37,14 +38,14 @@ function play() {
 
      for(let i = 0; i<winComb.length; i++) {
         if(item[winComb[i][0]].innerHTML === 'x' && item[winComb[i][1]].innerHTML === 'x' && item[winComb[i][2]].innerHTML === 'x') {
-            alert('win x');
+            text.innerHTML = ('Win X player!');
         } else if (item[winComb[i][0]].innerHTML === 'o' && item[winComb[i][1]].innerHTML === 'o' && item[winComb[i][2]].innerHTML === 'o') {
-            alert('win o');
+            text.innerHTML = ('Win O player!');
         }
      }
  }
  function draw() {
     if(step === 9 && !check()) {
-        alert('draw')
+       return text.innerHTML = ('Draw!');
     }
 }
